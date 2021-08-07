@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 #from sklearn.neural_network import MLPRegressor
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import KNeighborsRegressor
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
  
@@ -133,8 +134,7 @@ class data_quality_analyzer(object):
             df = df[df.columns.difference(['index'])]
             
             
-            ann1 =  RandomForestRegressor(n_estimators=200,max_depth=10)
-            #MLPRegressor(hidden_layer_sizes=15, activation='relu', solver='adam', alpha=0.0001, batch_size='auto', learning_rate='constant', learning_rate_init=0.001, power_t=0.5, max_iter=6000, shuffle=True, random_state=None, tol=0.0001, verbose=False, warm_start=False, momentum=0.9, nesterovs_momentum=True, early_stopping=False, validation_fraction=0.1, beta_1=0.9, beta_2=0.999, epsilon=1e-08, n_iter_no_change=10, max_fun=15000)
+            Knn =  KNeighborsRegressor()
             
         def train(df, df_nan):
             for col in list(df_nan.columns):
@@ -142,7 +142,7 @@ class data_quality_analyzer(object):
                     
                     y = df[col]
                     X = df.drop(columns=[col])
-                    ann1.fit(X, y)
+                    Knn.fit(X, y)
                     
                     x_test = df_nan.drop(columns=[col])
                     x_test_copy = x_test.copy()
