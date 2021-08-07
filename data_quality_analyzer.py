@@ -72,20 +72,20 @@ class data_quality_analyzer(object):
         
         if integrity_list == []:
             print('No duplication in the data') 
-            print(f'The race of duplication is {100-race_integrity :.2f}%')
+            print(f'The race of duplication is {race_integrity :.2f}%')
             print('--------------------------------------------------------', end='\n')
         else: 
             print(f'integrityd lines are: {integrity_list}') 
-            print(f'The race of duplication is {100-race_integrity :2f}.%')
+            print(f'The race of duplication is {race_integrity :2f}.%')
             print('--------------------------------------------------------', end='\n')
             
         if list_incompleteness== []:
             print('No imcompleteness in the data')
-            print(f'The race of completeness is {100-incomplet_race :.2f}%')
+            print(f'The race of completeness is {incomplet_race :.2f}%')
             print('--------------------------------------------------------', end='\n')
         else:
             print(f'There is incompleteness at lines:{list_incompleteness}')
-            print(f'The race of completeness is {100-incomplet_race :.2f}%')
+            print(f'The race of completeness is {incomplet_race :.2f}%')
             print('--------------------------------------------------------', end='\n')
   
          
